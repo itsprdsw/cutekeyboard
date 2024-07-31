@@ -9,16 +9,19 @@ Key {
     showPreview: false
     btnBackground: InputPanel.btnSpecialBackgroundColor
     onClicked: {
-        var indx = InputPanel.availableLanguageLayouts.indexOf(InputPanel.languageLayout);
-        if (indx != -1) {
+        function switchToNextLayout() {
+            var indx = InputPanel.availableLanguageLayouts.indexOf(InputPanel.languageLayout);
+            if (indx === -1) return InputPanel.availableLanguageLayouts[0];
+
             var nextIndx = (indx + 1) % InputPanel.availableLanguageLayouts.length;
             var nextLangLayout = InputPanel.availableLanguageLayouts[nextIndx];
-            if (InputEngine.inputLayoutValid(nextLangLayout))
-                InputPanel.languageLayout = nextLangLayout;
-            else
-                InputPanel.languageLayout = "En";
-        } else {
-            InputPanel.languageLayout = InputPanel.availableLanguageLayouts[0];
+
+            return InputEngine.inputLayoutValid(nextLangLayout) ? nextLangLayout : "En";
+        }
+
+        InputPanel.languageLayout = switchToNextLayout();
+        if (InputEngine.symbolMode) {
+            InputEngine.symbolMode = false;
         }
     }
 }
