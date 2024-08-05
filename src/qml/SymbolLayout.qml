@@ -254,8 +254,6 @@ Item {
             SpaceKey {
                 weight: 900
                 inputPanelRef: inputPanel
-                btnDisplayedText: "English"
-                opacity: 0.5
             }
 
             Key {
@@ -513,8 +511,6 @@ Item {
             SpaceKey {
                 weight: 900
                 inputPanelRef: inputPanel
-                btnDisplayedText: "English"
-                opacity: 0.5
             }
 
             Key {

@@ -235,7 +235,7 @@ ColumnLayout {
         spacing: 0
 
         SymbolKey {
-            weight: 217 // availableLanguageLayouts.length === 1 ? 217 : 108.5
+            weight: 217
         }
 
         LanguageKey {
@@ -246,8 +246,6 @@ ColumnLayout {
         SpaceKey {
             weight: 900
             inputPanelRef: inputPanel
-            btnDisplayedText: "English"
-            opacity: 0.5
         }
 
         Key {

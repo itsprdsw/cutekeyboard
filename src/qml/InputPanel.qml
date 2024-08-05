@@ -12,6 +12,7 @@ Item {
     property color btnTextColor: "#ffffff"
     property string btnTextFontFamily: "Sans"
     property string languageLayout: "En"
+    property string currentLanguage: languageDictionary[languageLayout]
     property string backspaceIcon: "qrc:/images/backspace.svg"
     property string enterIcon: "qrc:/images/enter.svg"
     property string shiftOnIcon: "qrc:/images/shift-green.svg"
@@ -19,6 +20,19 @@ Item {
     property string hideKeyboardIcon: "qrc:/images/hidekeyboard.svg"
     property string languageIcon: "qrc:/images/globe.svg"
     property var availableLanguageLayouts: ["En"]
+
+    property var languageDictionary: {
+        "En": "English",
+        "Es": "Español",
+        "Cs": "Čeština",
+        "De": "Deutsch",
+        "El": "Ελληνικά",
+        "Fr": "Français",
+        "It": "Italiano",
+        "Nl": "Nederlands",
+        "Pl": "Polski",
+        "Pt": "Português"
+    }
 
     function showKeyPopup(keyButton) {
         keyPopup.popup(keyButton, root);
@@ -71,6 +85,7 @@ Item {
         InputPanel.languageIcon = languageIcon;
         InputPanel.availableLanguageLayouts = availableLanguageLayouts;
         InputPanel.languageLayout = languageLayout;
+        InputPanel.currentLanguage = languageDictionary[languageLayout]
         loadLettersLayout();
     }
 
