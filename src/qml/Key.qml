@@ -2,22 +2,30 @@ import CuteKeyboard 1.0
 import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.12
+import QtGraphicalEffects 1.0
 
 Button {
     id: key
 
+    property var inputPanelRef : inputPanel
     property real weight: parent.keyWeight
     property string btnText: ""
     property string btnDisplayedText: text
     property int btnKey: Qt.Key_unknown
-    property color btnBackground: InputPanel.btnBackgroundColor
+    property color btnBackground: inputPanelRef.btnBackgroundColor
     property int btnRadius: 6
-    property color txtColor: InputPanel.btnTextColor
-    property string txtFont: InputPanel.btnTextFontFamily
+    property color txtColor: inputPanelRef.btnIconColor
+    property string txtFont: inputPanelRef.btnTextFontFamily
     property string btnIcon: ""
+    property color btnIconColor: inputPanelRef.btnIconColor
     property var alternativeKeys: []
-    property var inputPanelRef
+
     property alias repeatable: key.autoRepeat
+    property alias btnTextFontPixelSize: btnTextItem.font.pixelSize
+    property alias btnTextFontCapitalization: btnTextItem.font.capitalization
+    property alias btnIconHeight: btnIconItem.height
+    property alias btnIconWidth: btnIconItem.width
+
     property bool showPreview: true
     property bool functionKey: false
 
@@ -44,9 +52,9 @@ Button {
         }
     }
     onReleased: {
-        if (!functionKey)
+        if (!functionKey){
             InputEngine.virtualKeyClick(btnKey, InputEngine.uppercase ? btnText.toUpperCase() : btnText, InputEngine.uppercase ? Qt.ShiftModifier : 0);
-
+        }
     }
 
     Timer {
@@ -98,11 +106,18 @@ Button {
 
             source: btnIcon
             visible: btnDisplayedText === ""
-            width: parent.width * 0.7
             height: parent.height * 0.7
+            width: height
             anchors.centerIn: parent
 
             fillMode: Image.PreserveAspectFit
+
+            ColorOverlay {
+                anchors.fill: btnIconItem
+                source: btnIconItem
+                color: key.btnIconColor
+            }
+
         }
 
     }

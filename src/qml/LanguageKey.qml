@@ -2,24 +2,29 @@ import CuteKeyboard 1.0
 import QtQuick 2.0
 
 Key {
+    id: languageKey
+
+    inputPanelRef: inputPanel
     weight: 108.5
     btnKey: Qt.Key_Context2
-    btnIcon: InputPanel.languageIcon
+    btnIcon: inputPanel.languageIcon
+    btnIconHeight: parent.height * 0.35
+    btnIconWidth: btnIconHeight
     functionKey: true
     showPreview: false
-    btnBackground: InputPanel.btnSpecialBackgroundColor
+    btnBackground: inputPanel.btnSpecialBackgroundColor
     onClicked: {
         function switchToNextLayout() {
-            var indx = InputPanel.availableLanguageLayouts.indexOf(InputPanel.languageLayout);
-            if (indx === -1) return InputPanel.availableLanguageLayouts[0];
+            var indx = inputPanel.availableLanguageLayouts.indexOf(inputPanel.languageLayout);
+            if (indx === -1) return inputPanel.availableLanguageLayouts[0];
 
-            var nextIndx = (indx + 1) % InputPanel.availableLanguageLayouts.length;
-            var nextLangLayout = InputPanel.availableLanguageLayouts[nextIndx];
+            var nextIndx = (indx + 1) % inputPanel.availableLanguageLayouts.length;
+            var nextLangLayout = inputPanel.availableLanguageLayouts[nextIndx];
 
             return InputEngine.inputLayoutValid(nextLangLayout) ? nextLangLayout : "En";
         }
 
-        InputPanel.languageLayout = switchToNextLayout();
+        inputPanel.languageLayout = switchToNextLayout();
         if (InputEngine.symbolMode) {
             InputEngine.symbolMode = false;
         }
