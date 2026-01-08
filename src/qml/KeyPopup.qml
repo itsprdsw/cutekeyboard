@@ -56,12 +56,12 @@ Item {
         gradient: Gradient {
             GradientStop {
                 position: 0
-                color: Qt.lighter(popupColor)
+                color: Qt.lighter(root.popupColor)
             }
 
             GradientStop {
                 position: 1
-                color: popupColor
+                color: root.popupColor
             }
 
         }

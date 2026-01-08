@@ -6,17 +6,20 @@ Item {
     id: root
 
     property bool active: Qt.inputMethod.visible
-    property color backgroundColor: "#000000"
-    property color btnBackgroundColor: "#383533"
-    property color btnSpecialBackgroundColor: "#23211E"
+    property color backgroundColor: "#18181B"
+    property color btnBackgroundColor: "#52525C"
+    property color btnSpecialBackgroundColor: "#3F3F47"
     property color btnTextColor: "#ffffff"
-    property string btnTextFontFamily: "Sans"
+    property color btnIconColor: "#ffffff"
+    property color btnShiftBackgroundColor: "#9F9FA9"
+
+    property string btnTextFontFamily: "Sans"    
     property string languageLayout: "En"
     property string currentLanguage: languageDictionary[languageLayout]
     property string backspaceIcon: "qrc:/images/backspace.svg"
     property string enterIcon: "qrc:/images/enter.svg"
-    property string shiftOnIcon: "qrc:/images/shift-green.svg"
-    property string shiftOffIcon: "qrc:/images/shift-grey.svg"
+    property string shiftOnIcon: "qrc:/images/shift-on.svg"
+    property string shiftOffIcon: "qrc:/images/shift-off.svg"
     property string hideKeyboardIcon: "qrc:/images/hidekeyboard.svg"
     property string languageIcon: "qrc:/images/globe.svg"
     property var availableLanguageLayouts: ["En"]
@@ -68,24 +71,9 @@ Item {
     }
     onLanguageLayoutChanged: loadLettersLayout()
     Component.onCompleted: {
-
-        if (availableLanguageLayouts.length == 0)
+        if (availableLanguageLayouts.length == 0){
             availableLanguageLayouts = ["En"];
-
-        InputPanel.backgroundColor = backgroundColor;
-        InputPanel.btnBackgroundColor = btnBackgroundColor;
-        InputPanel.btnSpecialBackgroundColor = btnSpecialBackgroundColor;
-        InputPanel.btnTextColor = btnTextColor;
-        InputPanel.btnTextFontFamily = btnTextFontFamily;
-        InputPanel.backspaceIcon = backspaceIcon;
-        InputPanel.enterIcon = enterIcon;
-        InputPanel.shiftOnIcon = shiftOnIcon;
-        InputPanel.shiftOffIcon = shiftOffIcon;
-        InputPanel.hideKeyboardIcon = hideKeyboardIcon;
-        InputPanel.languageIcon = languageIcon;
-        InputPanel.availableLanguageLayouts = availableLanguageLayouts;
-        InputPanel.languageLayout = languageLayout;
-        InputPanel.currentLanguage = languageDictionary[languageLayout]
+        }
         loadLettersLayout();
     }
 
@@ -119,7 +107,7 @@ Item {
     Rectangle {
         id: keyboardRect
 
-        color: InputPanel.backgroundColor
+        color: backgroundColor
         anchors.fill: parent
 
         MouseArea {
@@ -140,6 +128,8 @@ Item {
         }
 
         Connections {
+            target: InputEngine
+
             function refreshLayouts() {
                 if (InputEngine.symbolMode)
                     layoutLoader.setSource("SymbolLayout.qml", {
@@ -160,8 +150,6 @@ Item {
             function onIsSymbolModeChanged() {
                 refreshLayouts();
             }
-
-            target: InputEngine
         }
 
         Connections {
