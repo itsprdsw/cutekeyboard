@@ -111,15 +111,13 @@ Button {
             anchors.centerIn: parent
 
             fillMode: Image.PreserveAspectFit
-
-            ColorOverlay {
-                anchors.fill: btnIconItem
-                source: btnIconItem
-                color: key.btnIconColor
-            }
-
         }
 
+        ColorOverlay {
+            anchors.fill: btnIconItem
+            source: btnIconItem
+            color: key.btnIconColor
+        }
     }
 
 }
