@@ -251,8 +251,12 @@ Item {
                 weight: 140
             }
 
+            NumericModeKey {
+                weight: 140
+            }
+
             SpaceKey {
-                weight: 900
+                weight: 760
                 inputPanelRef: inputPanel
             }
 
@@ -508,8 +512,12 @@ Item {
                 weight: 140
             }
 
+            NumericModeKey {
+                weight: 140
+            }
+
             SpaceKey {
-                weight: 900
+                weight: 760
                 inputPanelRef: inputPanel
             }
 

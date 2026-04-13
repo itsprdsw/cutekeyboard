@@ -14,7 +14,7 @@ Item {
     property color btnShiftBackgroundColor: "#9F9FA9"
 
     property string btnTextFontFamily: "Sans"    
-    property string languageLayout: "En"//test
+    property string languageLayout: "En"
     property string currentLanguage: languageDictionary[languageLayout]
     property string backspaceIcon: "qrc:/images/backspace.svg"
     property string enterIcon: "qrc:/images/enter.svg"
