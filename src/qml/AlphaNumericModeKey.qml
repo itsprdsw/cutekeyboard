@@ -11,7 +11,6 @@ Key {
     showPreview: false
     btnBackground: inputPanel.btnSpecialBackgroundColor
     onClicked: {
-        console.log("**** alphaNumericModeKey OnClicked ****")
         InputEngine.symbolMode = false
         InputEngine.inputMode = InputEngine.Letters
     }
