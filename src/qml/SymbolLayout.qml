@@ -8,7 +8,6 @@ Item {
     onVisibleChanged: {
         if (!visible)
             secondPage = false;
-
     }
 
     ColumnLayout {
@@ -251,12 +250,8 @@ Item {
                 weight: 140
             }
 
-            NumericModeKey {
-                weight: 140
-            }
-
             SpaceKey {
-                weight: 760
+                weight: 820
                 inputPanelRef: inputPanel
             }
 
@@ -266,8 +261,12 @@ Item {
                 inputPanelRef: inputPanel
             }
 
+            NumericModeKey {
+                weight: 140
+            }
+
             HideKey {
-                weight: 200
+                weight: 140
             }
 
         }
@@ -512,12 +511,8 @@ Item {
                 weight: 140
             }
 
-            NumericModeKey {
-                weight: 140
-            }
-
             SpaceKey {
-                weight: 760
+                weight: 820
                 inputPanelRef: inputPanel
             }
 
@@ -527,12 +522,13 @@ Item {
                 inputPanelRef: inputPanel
             }
 
-            HideKey {
-                weight: 200
+            NumericModeKey {
+                weight: 140
             }
 
+            HideKey {
+                weight: 140
+            }
         }
-
     }
-
 }
