@@ -111,7 +111,7 @@ ColumnLayout {
                 inputPanelRef: inputPanel
             }
 
-            AlphaNumericModeKey { }
+            LettersKey { }
 
             Key {
                 btnKey: Qt.locale().decimalPoint === "," ? Qt.Key_Comma : Qt.Key_Period
@@ -122,6 +122,9 @@ ColumnLayout {
             EnterKey {
                 inputPanelRef: inputPanel
             }
+
         }
+
     }
+
 }

@@ -8,6 +8,7 @@ Item {
     onVisibleChanged: {
         if (!visible)
             secondPage = false;
+
     }
 
     ColumnLayout {
@@ -261,7 +262,7 @@ Item {
                 inputPanelRef: inputPanel
             }
 
-            NumericModeKey {
+            NumbersKey {
                 weight: 140
             }
 
@@ -522,7 +523,7 @@ Item {
                 inputPanelRef: inputPanel
             }
 
-            NumericModeKey {
+            NumbersKey {
                 weight: 140
             }
 

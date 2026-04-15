@@ -2,17 +2,17 @@ import CuteKeyboard 1.0
 import QtQuick 2.0
 
 Key {
-    id: numericModeKey
+    id: lettersKey
 
     inputPanelRef: inputPanel
     btnKey: Qt.Key_Context1
-    btnDisplayedText: "123"
+    btnDisplayedText: "ABC"
     functionKey: true
     showPreview: false
     btnBackground: inputPanel.btnSpecialBackgroundColor
     onClicked: {
         InputEngine.symbolMode = false
-        InputEngine.inputMode = InputEngine.DigitsOnly
+        InputEngine.inputMode = InputEngine.Letters
     }
-    btnTextFontPixelSize: numericModeKey.height * 0.28
+    btnTextFontPixelSize: lettersKey.height * 0.28
 }
