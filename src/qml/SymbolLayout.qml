@@ -252,7 +252,7 @@ Item {
             }
 
             SpaceKey {
-                weight: 900
+                weight: 820
                 inputPanelRef: inputPanel
             }
 
@@ -262,8 +262,12 @@ Item {
                 inputPanelRef: inputPanel
             }
 
+            NumbersKey {
+                weight: 140
+            }
+
             HideKey {
-                weight: 200
+                weight: 140
             }
 
         }
@@ -509,7 +513,7 @@ Item {
             }
 
             SpaceKey {
-                weight: 900
+                weight: 820
                 inputPanelRef: inputPanel
             }
 
@@ -519,12 +523,13 @@ Item {
                 inputPanelRef: inputPanel
             }
 
-            HideKey {
-                weight: 200
+            NumbersKey {
+                weight: 140
             }
 
+            HideKey {
+                weight: 140
+            }
         }
-
     }
-
 }

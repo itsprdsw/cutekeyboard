@@ -72,6 +72,7 @@ target_wrapper.*
 # QtCreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
+*.idx
 
 # QtCreator CMake
 CMakeLists.txt.user*

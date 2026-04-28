@@ -111,6 +111,8 @@ ColumnLayout {
                 inputPanelRef: inputPanel
             }
 
+            LettersKey { }
+
             Key {
                 btnKey: Qt.locale().decimalPoint === "," ? Qt.Key_Comma : Qt.Key_Period
                 btnText: Qt.locale().decimalPoint === "," ? "," : "."
